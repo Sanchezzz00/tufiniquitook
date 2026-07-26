@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Finiquito Online 2026 | TuFiniquitoOK</title>
-    <meta name="description" content="Calcula gratis tu finiquito e indemnización por despido o baja voluntaria según la legislación laboral en España. Guía completa y simulación exacta.">
+    <meta name="description" content="Calcula gratis tu finiquito e indemnización por despido o baja voluntaria según la legislación laboral en España. Guía interactiva y simulación exacta.">
     
     <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
 
-    <!-- DATOS ESTRUCTURADOS SCHEMA.ORG PARA SEO GOOGLE (JSON-LD) -->
+    <!-- DATOS ESTRUCTURADOS SCHEMA.ORG (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -20,7 +20,6 @@
           "url": "https://tufiniquitook.vercel.app/",
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "All",
-          "browserRequirements": "Requires JavaScript",
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -35,15 +34,7 @@
               "name": "¿Tengo derecho a finiquito si me voy voluntariamente?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Sí, cobrarás los días trabajados en el mes, la parte proporcional de vacaciones no disfrutadas y pagas extras acumuladas. Lo único que pierdes es el derecho a indemnización y desempleo."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuál es el plazo para cobrar el finiquito?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "La empresa debe ponerlo a disposición del trabajador el mismo día de la extinción del contrato de trabajo."
+                "text": "Sí, cobrarás los días trabajados en el mes, vacaciones no disfrutadas y pagas extras acumuladas."
               }
             }
           ]
@@ -54,15 +45,17 @@
 
     <style>
         :root {
-            --bg-color: #0f172a;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --accent-hover: #0284c7;
+            --card-hover: #26334d;
+            --primary-accent: #38bdf8;
+            --green-btn: #10b981;
+            --green-hover: #059669;
+            --amber-accent: #f59e0b;
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #334155;
-            --warning-bg: #1e1b4b;
-            --warning-border: #6366f1;
+            --badge-bg: rgba(56, 189, 248, 0.15);
         }
 
         * {
@@ -73,25 +66,29 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background: var(--bg-gradient);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 0 20px 20px 20px;
+            padding: 0 20px 40px 20px;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* NAVEGACIÓN SUPERIOR */
+        /* NAVBAR */
         nav {
-            background-color: var(--card-bg);
+            background-color: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             padding: 15px 20px;
             margin: 0 -20px 30px -20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -104,8 +101,12 @@
             gap: 10px;
             text-decoration: none;
             color: #fff;
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .nav-brand span.highlight {
+            color: var(--primary-accent);
         }
 
         .nav-links a {
@@ -113,35 +114,53 @@
             text-decoration: none;
             margin-left: 20px;
             font-size: 0.95rem;
+            font-weight: 600;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--primary-accent);
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             width: 100%;
             flex: 1;
         }
 
+        /* HEADER & TRUST BADGE */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
         h1 {
             color: #ffffff;
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         h1 span {
-            color: var(--accent-color);
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         p.subtitle {
@@ -149,13 +168,14 @@
             font-size: 1.1rem;
         }
 
+        /* CALCULADORA CARD */
         .calculator-card {
             background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--border-color);
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .form-group {
@@ -166,187 +186,230 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            font-size: 0.95rem;
         }
 
         input, select {
             width: 100%;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 13px 15px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            background-color: var(--bg-color);
+            background-color: #0f172a;
             color: var(--text-color);
             font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         input:focus, select:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 18px;
         }
 
-        @media (max-width: 600px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none; /* Simplificado para móvil */
-            }
+        @media (max-width: 650px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            h1 { font-size: 2rem; }
         }
 
-        button {
+        button.btn-calc {
             width: 100%;
-            background-color: var(--accent-color);
-            color: #000;
-            font-weight: bold;
-            padding: 14px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 16px;
             border: none;
-            border-radius: 6px;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-size: 1.15rem;
             cursor: pointer;
-            transition: background-color 0.2s;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+            transition: transform 0.1s, box-shadow 0.2s;
             margin-top: 10px;
         }
 
-        button:hover {
-            background-color: var(--accent-hover);
-            color: #fff;
+        button.btn-calc:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
         }
 
+        /* RESULTADOS */
         .result-box {
-            margin-top: 25px;
-            padding: 20px;
-            background-color: var(--bg-color);
-            border-radius: 8px;
-            border: 1px solid var(--accent-color);
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+            border-radius: 12px;
+            border: 1px solid var(--primary-accent);
             display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .result-box h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
+            color: var(--primary-accent);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
         }
 
         .result-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 4px;
+            padding-bottom: 6px;
+            color: #cbd5e1;
         }
 
         .result-total {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #4ade80;
-            margin-top: 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #34d399;
+            margin-top: 18px;
             border-bottom: none;
+            padding-top: 10px;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 12px;
+            border-radius: 8px;
         }
 
-        .content-section {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 30px;
+        /* SECCIONES Y TARJETAS DE BLOG */
+        .section-header {
+            margin-bottom: 25px;
         }
 
-        .content-section h2 {
-            color: var(--accent-color);
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
+        .section-header h2 {
+            font-size: 1.7rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .content-section h3 {
-            color: #f1f5f9;
-            margin: 20px 0 10px 0;
-            font-size: 1.2rem;
-        }
-
-        .content-section p, .content-section ul {
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .content-section ul {
-            padding-left: 20px;
-        }
-
-        .content-section li {
-            margin-bottom: 8px;
-        }
-
-        .alert-box {
-            background-color: var(--warning-bg);
-            border-left: 4px solid var(--warning-border);
-            padding: 15px;
-            border-radius: 4px;
-            margin: 20px 0;
-            color: #e0e7ff;
-        }
-
-        /* BLOQUE DE ARTÍCULOS DESTACADOS */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-bottom: 45px;
         }
 
         .blog-card {
-            background-color: var(--bg-color);
-            padding: 20px;
-            border-radius: 8px;
+            background-color: var(--card-bg);
+            padding: 24px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
-            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+            text-decoration: none;
         }
 
         .blog-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            border-color: var(--primary-accent);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.4);
+            background-color: var(--card-hover);
+        }
+
+        .blog-tag {
+            align-self: flex-start;
+            background: var(--badge-bg);
+            color: var(--primary-accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
         .blog-card h4 {
-            color: #fff;
+            color: #ffffff;
+            font-size: 1.15rem;
             margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .blog-card p {
+            color: var(--text-muted);
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
-        .blog-card a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
+        .blog-link {
+            color: var(--primary-accent);
+            font-weight: 700;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
+
+        /* ACCORDEÓN INTERACTIVO PARA GUÍA */
+        .faq-accordion {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 25px;
+            text-align: left;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover { background-color: rgba(255, 255, 255, 0.02); }
+
+        .faq-answer {
+            padding: 0 25px 20px 25px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-answer p { margin-bottom: 10px; }
 
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: auto;
+            padding: 25px 0 0 0;
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
         }
 
         footer a {
-            color: var(--accent-color);
+            color: var(--primary-accent);
             text-decoration: none;
             margin: 0 8px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -355,20 +418,23 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="nav-brand">
-                <span>⚖️</span> TuFiniquito<span>OK</span>
+                <span>⚖️</span> TuFiniquito<span class="highlight">OK</span>
             </a>
             <div class="nav-links">
                 <a href="#calculadora">Calculadora</a>
-                <a href="#guia">Guía Legal</a>
-                <a href="#articulos">Artículos</a>
+                <a href="#articulos">Guías</a>
+                <a href="#faq">Preguntas Frecuentes</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <header>
-            <h1>Calculadora de Finiquito Online</h1>
-            <p class="subtitle">Calcula de forma rápida y precisa tu finiquito en España según la Ley Laboral</p>
+            <div class="trust-badge">
+                <span>⚡</span> Actualizado a la Ley Laboral 2026 • 100% Gratuito
+            </div>
+            <h1>Simulador de <span>Finiquito e Indemnización</span></h1>
+            <p class="subtitle">Calcula en segundos el dinero que te corresponde al finalizar tu contrato en España</p>
         </header>
 
         <main>
@@ -378,7 +444,7 @@
                     <div class="grid-2">
                         <div class="form-group">
                             <label for="salario-base">Salario Bruto Mensual (€):</label>
-                            <input type="number" id="salario-base" placeholder="Ej: 1500" required step="0.01">
+                            <input type="number" id="salario-base" placeholder="Ej: 1600" required step="0.01">
                         </div>
                         <div class="form-group">
                             <label for="pagas">Nº de Pagas al año:</label>
@@ -395,33 +461,33 @@
                             <input type="date" id="fecha-inicio" required>
                         </div>
                         <div class="form-group">
-                            <label for="fecha-fin">Fecha de Fin/Despido:</label>
+                            <label for="fecha-fin">Fecha de Fin / Despido:</label>
                             <input type="date" id="fecha-fin" required>
                         </div>
                     </div>
 
                     <div class="grid-2">
                         <div class="form-group">
-                            <label for="vacaciones">Días de vacaciones no disfrutados:</label>
+                            <label for="vacaciones">Días de vacaciones pendientes:</label>
                             <input type="number" id="vacaciones" value="0" min="0">
                         </div>
                         <div class="form-group">
                             <label for="motivo">Motivo de finalización:</label>
                             <select id="motivo">
-                                <option value="0">Baja Voluntaria (Sin indemnización)</option>
+                                <option value="0">Baja Voluntaria / Dimisión (0 días)</option>
                                 <option value="20">Despido Objetivo / Fin de Obra (20 días/año)</option>
                                 <option value="33">Despido Improcedente (33 días/año)</option>
                             </select>
                         </div>
                     </div>
 
-                    <button type="button" onclick="calcularFiniquito()">Calcular Finiquito</button>
+                    <button type="button" class="btn-calc" onclick="calcularFiniquito()">📊 Calcular Mi Finiquito Ahora</button>
                 </form>
 
                 <div id="resultado" class="result-box">
-                    <h3>Desglose del Finiquito Estimado</h3>
+                    <h3>💰 Desglose Estimado de Tu Liquidación</h3>
                     <div class="result-item">
-                        <span>Parte proporcional mes en curso:</span>
+                        <span>Días trabajados del mes en curso:</span>
                         <span id="res-mes">0.00 €</span>
                     </div>
                     <div class="result-item">
@@ -429,74 +495,102 @@
                         <span id="res-vacaciones">0.00 €</span>
                     </div>
                     <div class="result-item">
-                        <span>Indemnización por despido:</span>
+                        <span>Indemnización correspondiente:</span>
                         <span id="res-indemnizacion">0.00 €</span>
                     </div>
                     <div class="result-item result-total">
-                        <span>Total Estimado A Recibir:</span>
+                        <span>TOTAL A RECIBIR:</span>
                         <span id="res-total">0.00 €</span>
                     </div>
                 </div>
             </div>
 
-            <!-- GUÍA SEO -->
-            <article id="guia" class="content-section">
-                <h2>Guía Completa: ¿Cómo se calcula el Finiquito en España?</h2>
-                <p>El <strong>finiquito</strong> es el documento que formaliza la liquidación de las cantidades adeudadas por la empresa al trabajador al finalizar la relación laboral, independientemente de la causa del cese.</p>
-                
-                <h3>Conceptos clave que componen tu finiquito:</h3>
-                <ul>
-                    <li><strong>Días del mes en curso:</strong> Los días trabajados en el mes actual que aún no has cobrado.</li>
-                    <li><strong>Vacaciones no disfrutadas:</strong> Si te quedan días de vacaciones del año en curso, la empresa debe pagártelos.</li>
-                    <li><strong>Pagas extraordinarias:</strong> La parte proporcional acumulada si tus pagas extras no están prorrateadas.</li>
-                    <li><strong>Indemnización (si procede):</strong> Dependiendo del tipo de despido (objetivo, improcedente o fin de contrato), te corresponderá una cuantía por año trabajado.</li>
-                </ul>
-
-                <div class="alert-box">
-                    <strong>📌 Consejo Legal Importante:</strong> Al recibir la propuesta de finiquito, si tienes dudas sobre las cantidades o la causa, firma siempre indicando junto a tu firma la coletilla <em>"No Conforme"</em> y la fecha del día actual.
+            <!-- SECCIÓN DE ARTÍCULOS DESTACADOS -->
+            <section id="articulos">
+                <div class="section-header">
+                    <h2>📚 Guías Paso a Paso para Proteger Tu Dinero</h2>
                 </div>
 
-                <h3>Diferencia entre Finiquito e Indemnización</h3>
-                <p>Existe la falsa creencia de que finiquito e indemnización son lo mismo. El <strong>finiquito siempre se cobra</strong>, incluso en bajas voluntarias. La <strong>indemnización solo se recibe en casos específicos de despido</strong> o finalización de contratos temporales.</p>
+                <div class="blog-grid">
+                    <a href="despido-procedente-vs-improcedente.html" class="blog-card">
+                        <div>
+                            <span class="blog-tag">INDEMNIZACIONES</span>
+                            <h4>Despido Objetivo vs Improcedente</h4>
+                            <p>Descubre si te corresponden 20 o 33 días por año y cómo identificar trampas en la carta.</p>
+                        </div>
+                        <span class="blog-link">Leer guía completa →</span>
+                    </a>
 
-                <h3>Preguntas Frecuentes (FAQ)</h3>
-                <p><strong>¿Tengo derecho a finiquito si me voy voluntariamente?</strong><br>
-                Sí, cobrarás los días trabajados en el mes, la parte proporcional de vacaciones no disfrutadas y pagas extras acumuladas. Lo único que pierdes es el derecho a indemnización y a la prestación por desempleo.</p>
+                    <a href="que-hacer-si-no-me-pagan-el-finiquito.html" class="blog-card">
+                        <div>
+                            <span class="blog-tag" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15);">IMPAGOS</span>
+                            <h4>¿La Empresa No Te Paga?</h4>
+                            <p>Pasos legales, plazos de reclamación y cómo exigir el 10% de recargo por mora.</p>
+                        </div>
+                        <span class="blog-link">Leer guía completa →</span>
+                    </a>
 
-                <p><strong>¿Cuál es el plazo para cobrar el finiquito?</strong><br>
-                La empresa debe ponerlo a disposición del trabajador el mismo día de la extinción del contrato de trabajo.</p>
-            </article>
+                    <a href="como-calcular-vacaciones-no-disfrutadas.html" class="blog-card">
+                        <div>
+                            <span class="blog-tag" style="color: #10b981; background: rgba(16, 185, 129, 0.15);">CÁLCULOS</span>
+                            <h4>Vacaciones No Disfrutadas</h4>
+                            <p>La fórmula exacta para saber cuánto dinero te deben por días pendientes.</p>
+                        </div>
+                        <span class="blog-link">Leer guía completa →</span>
+                    </a>
 
-            <!-- SECCIÓN DE ARTÍCULOS / BLOG (PREPARADA) -->
-            <section id="articulos" class="content-section">
-                <h2>Guías y Artículos Laborales Destacados</h2>
-                <p>Consulta nuestras guías detalladas para resolver dudas específicas sobre tu liquidación laboral:</p>
+                    <a href="finiquito-por-baja-voluntaria.html" class="blog-card">
+                        <div>
+                            <span class="blog-tag">BAJA VOLUNTARIA</span>
+                            <h4>Finiquito si Decides Dimitir</h4>
+                            <p>¿Qué cobras si te vas voluntariamente? Evita la penalización por preaviso.</p>
+                        </div>
+                        <span class="blog-link">Leer guía completa →</span>
+                    </a>
 
-               <div class="blog-grid">
-                    <div class="blog-card">
-                        <h4>Despido Objetivo vs Improcedente</h4>
-                        <p>Diferencias en indemnización (20 vs 33 días) y cuál te corresponde.</p>
-                        <a href="despido-procedente-vs-improcedente.html">Leer guía →</a>
+                    <a href="firmar-finiquito-no-conforme.html" class="blog-card">
+                        <div>
+                            <span class="blog-tag" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15);">CONSEJO LEGAL</span>
+                            <h4>Firmar "No Conforme"</h4>
+                            <p>Cómo firmar la carta sin perder el derecho a reclamar si faltan euros por cobrar.</p>
+                        </div>
+                        <span class="blog-link">Leer guía completa →</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- GUÍA INTERACTIVA DE PREGUNTAS FRECUENTES -->
+            <section id="faq">
+                <div class="section-header">
+                    <h2>❓ Preguntas Frecuentes sobre el Finiquito</h2>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Cuál es la diferencia entre Finiquito e Indemnización? <span>➕</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>El <strong>finiquito</strong> es el saldo de salarios pendientes (días del mes, vacaciones no disfrutadas, pagas extra) y **se cobra SIEMPRE**, independientemente del motivo de baja. La **indemnización** es una compensación económica que solo se cobra en caso de despido o fin de contrato temporal.</p>
+                        </div>
                     </div>
-                    <div class="blog-card">
-                        <h4>¿Qué hacer si no te pagan?</h4>
-                        <p>Pasos legales y cómo redactar una Papeleta en el SMAC si la empresa impaga.</p>
-                        <a href="que-hacer-si-no-me-pagan-el-finiquito.html">Leer guía →</a>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Qué plazo tiene la empresa para ingresarme el dinero? <span>➕</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La ley exige que el finiquito se ponga a disposición del trabajador el mismo día de la extinción del contrato. Habitualmente se abona mediante transferencia el mismo día de pago de la nómina habitual.</p>
+                        </div>
                     </div>
-                    <div class="blog-card">
-                        <h4>Vacaciones No Disfrutadas</h4>
-                        <p>Fórmula exacta y cómo calcular el dinero por días pendientes.</p>
-                        <a href="como-calcular-vacaciones-no-disfrutadas.html">Leer guía →</a>
-                    </div>
-                    <div class="blog-card">
-                        <h4>Finiquito por Baja Voluntaria</h4>
-                        <p>¿Qué cobras si dimites? La regla del preaviso y qué dinero no pierdes.</p>
-                        <a href="finiquito-por-baja-voluntaria.html">Leer guía →</a>
-                    </div>
-                    <div class="blog-card">
-                        <h4>Firmar "No Conforme"</h4>
-                        <p>Cómo proteger tu derecho a reclamar si el cálculo está mal hecho.</p>
-                        <a href="firmar-finiquito-no-conforme.html">Leer guía →</a>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            ¿Tengo derecho a finiquito si me voy voluntariamente? <span>➕</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, cobrarás la parte proporcional de los días trabajados, las vacaciones no gastadas y la parte proporcional de pagas extras. Lo único que no recibirás es indemnización por despido ni prestación por desempleo.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -504,7 +598,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 TuFiniquitoOK - Herramienta informativa no vinculante.</p>
+        <p>&copy; 2026 TuFiniquitoOK - Herramienta de simulación informativa no vinculante.</p>
         <p>
             <a href="aviso-legal.html">Aviso Legal</a> | 
             <a href="privacidad.html">Política de Privacidad</a>
@@ -550,6 +644,18 @@
             document.getElementById('res-total').innerText = total.toFixed(2) + ' €';
 
             document.getElementById('resultado').style.display = 'block';
+        }
+
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('span');
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.innerText = "➕";
+            } else {
+                answer.style.display = "block";
+                icon.innerText = "➖";
+            }
         }
     </script>
 </body>
