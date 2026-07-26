@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Finiquito Online | TuFiniquitoOK</title>
-    <meta name="description" content="Calcula gratis y de forma precisa tu finiquito e indemnización por despido o baja voluntaria según la legislación laboral en España.">
+    <title>Calculadora de Finiquito Online 2026 | TuFiniquitoOK</title>
+    <meta name="description" content="Calcula gratis tu finiquito e indemnización por despido o baja voluntaria según la legislación laboral en España. Guía completa y simulación exacta.">
     
-    <!-- Google Search Console Metatag -->
-    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_AQUI" />
+    <!-- FAVICON (Icono para la pestaña del navegador) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
 
     <style>
         :root {
@@ -18,13 +18,15 @@
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #334155;
+            --warning-bg: #1e1b4b;
+            --warning-border: #6366f1;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -38,22 +40,45 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             width: 100%;
             flex: 1;
         }
 
+        /* HEADER Y LOGO */
         header {
             text-align: center;
             margin-bottom: 30px;
             padding-top: 20px;
         }
 
-        h1 {
-            color: var(--accent-color);
-            font-size: 2.2rem;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
             margin-bottom: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            background: #1e293b;
+            padding: 6px 12px;
+            border-radius: 12px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span {
+            color: var(--accent-color);
         }
 
         p.subtitle {
@@ -61,13 +86,14 @@
             font-size: 1.1rem;
         }
 
+        /* CALCULADORA CARD */
         .calculator-card {
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--border-color);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .form-group {
@@ -156,6 +182,51 @@
             border-bottom: none;
         }
 
+        /* SECCIONES SEO / CONTENIDO */
+        .content-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .content-section h2 {
+            color: var(--accent-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .content-section h3 {
+            color: #f1f5f9;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .content-section p, .content-section ul {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .alert-box {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            color: #e0e7ff;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -180,11 +251,15 @@
 
     <div class="container">
         <header>
-            <h1>Calculadora de Finiquito</h1>
-            <p class="subtitle">Calcula de forma rápida y precisa la estimación de tu finiquito en España</p>
+            <div class="logo-container">
+                <span class="logo-icon">⚖️</span>
+                <h1>TuFiniquito<span>OK</span></h1>
+            </div>
+            <p class="subtitle">Calcula de forma rápida y precisa tu finiquito en España según la Ley Laboral</p>
         </header>
 
         <main>
+            <!-- CALCULADORA -->
             <div class="calculator-card">
                 <form id="finiquito-form">
                     <div class="grid-2">
@@ -250,6 +325,34 @@
                     </div>
                 </div>
             </div>
+
+            <!-- GUÍA SEO -->
+            <article class="content-section">
+                <h2>Guía Completa: ¿Cómo se calcula el Finiquito en España?</h2>
+                <p>El <strong>finiquito</strong> es el documento que formaliza la liquidación de las cantidades adeudadas por la empresa al trabajador al finalizar la relación laboral, independientemente de la causa del cese.</p>
+                
+                <h3>Conceptos clave que componen tu finiquito:</h3>
+                <ul>
+                    <li><strong>Días del mes en curso:</strong> Los días trabajados en el mes actual que aún no has cobrado.</li>
+                    <li><strong>Vacaciones no disfrutadas:</strong> Si te quedan días de vacaciones del año en curso, la empresa debe pagártelos.</li>
+                    <li><strong>Pagas extraordinarias:</strong> La parte proporcional acumulada si tus pagas extras no están prorrateadas.</li>
+                    <li><strong>Indemnización (si procede):</strong> Dependiendo del tipo de despido (objetivo, improcedente o fin de contrato), te corresponderá una cuantía por año trabajado.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <strong>📌 Consejo Legal Importante:</strong> Al recibir la propuesta de finiquito, si tienes dudas sobre las cantidades o la causa, firma siempre indicando junto a tu firma la coletilla <em>"No Conforme"</em> y la fecha del día actual.
+                </div>
+
+                <h3>Diferencia entre Finiquito e Indemnización</h3>
+                <p>Existe la falsa creencia de que finiquito e indemnización son lo mismo. El <strong>finiquito siempre se cobra</strong>, incluso en bajas voluntarias. La <strong>indemnización solo se recibe en casos específicos de despido</strong> o finalización de contratos temporales.</p>
+
+                <h3>Preguntas Frecuentes (FAQ)</h3>
+                <p><strong>¿Tengo derecho a finiquito si me voy voluntariamente?</strong><br>
+                Sí, cobrarás los días trabajados en el mes, la parte proporcional de vacaciones no disfrutadas y pagas extras acumuladas. Lo único que pierdes es el derecho a indemnización y a la prestación por desempleo.</p>
+
+                <p><strong>¿Cuál es el plazo para cobrar el finiquito?</strong><br>
+                La empresa debe ponerlo a disposición del trabajador el mismo día de la extinción del contrato de trabajo.</p>
+            </article>
         </main>
     </div>
 
@@ -275,7 +378,6 @@
                 return;
             }
 
-            // Calculo Salario Anual y Diario
             let salarioAnual = 0;
             if (numPagas === 12) {
                 salarioAnual = salarioMensual * 12;
@@ -284,24 +386,17 @@
             }
             const salarioDiario = salarioAnual / 365;
 
-            // 1. Días trabajados mes en curso
             const diasMesEnCurso = fechaFin.getDate();
             const resMes = diasMesEnCurso * (salarioMensual / 30);
-
-            // 2. Pago Vacaciones
             const resVacaciones = diasVacaciones * salarioDiario;
 
-            // 3. Indemnización
             const diffTiempo = Math.abs(fechaFin - fechaInicio);
             const diasTotalesTrabajados = Math.ceil(diffTiempo / (1000 * 60 * 60 * 24));
             const anosTrabajados = diasTotalesTrabajados / 365;
             
             const resIndemnizacion = anosTrabajados * diasIndemnizacion * salarioDiario;
-
-            // Total
             const total = resMes + resVacaciones + resIndemnizacion;
 
-            // Mostrar Resultados
             document.getElementById('res-mes').innerText = resMes.toFixed(2) + ' €';
             document.getElementById('res-vacaciones').innerText = resVacaciones.toFixed(2) + ' €';
             document.getElementById('res-indemnizacion').innerText = resIndemnizacion.toFixed(2) + ' €';
