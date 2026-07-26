@@ -3,32 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="w6fpsg9viFpvYqHMZIom4DczKgWynvxollyT11y3nAM" />
-    <title>TuFiniquitoOK | Calculadora de Finiquito e Indemnización en España</title>
-    <meta name="description" content="Calcula gratis tu finiquito por baja voluntaria o despido (20 o 33 días por año). Simulación exacta con vacaciones no disfrutadas y pagas extra según la ley en España.">
-    <meta name="keywords" content="calcular finiquito, indemnizacion por despido, baja voluntaria finiquito, despido improcedente calculadora, finiquito vacaciones no disfrutadas">
+    <title>Calculadora de Finiquito Online | TuFiniquitoOK</title>
+    <meta name="description" content="Calcula gratis y de forma precisa tu finiquito e indemnización por despido o baja voluntaria según la legislación laboral en España.">
     
-    <!-- Open Graph / SEO Social -->
-    <meta property="og:title" content="TuFiniquitoOK - Calculadora Laboral Exacta">
-    <meta property="og:description" content="Calcula en 10 segundos lo que te corresponde de finiquito e indemnización en España.">
-    <meta property="og:type" content="website">
-
-    <!-- Datos Estructurados JSON-LD para SEO en Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "TuFiniquitoOK",
-      "category": "FinanceApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      "description": "Calculadora de finiquito e indemnizaciones por despido en España."
-    }
-    </script>
+    <!-- Google Search Console Metatag -->
+    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_AQUI" />
 
     <style>
         :root {
@@ -36,10 +15,9 @@
             --card-bg: #1e293b;
             --accent-color: #38bdf8;
             --accent-hover: #0284c7;
-            --text-main: #f8fafc;
+            --text-color: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #334155;
-            --success-color: #22c55e;
         }
 
         * {
@@ -51,39 +29,45 @@
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-color);
             line-height: 1.6;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
+            width: 100%;
+            flex: 1;
         }
 
         header {
             text-align: center;
-            padding: 30px 0 20px;
+            margin-bottom: 30px;
+            padding-top: 20px;
         }
 
-        header h1 {
-            font-size: 2.2rem;
+        h1 {
             color: var(--accent-color);
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
 
-        header p {
+        p.subtitle {
             color: var(--text-muted);
             font-size: 1.1rem;
         }
 
         .calculator-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+            padding: 30px;
             border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
         }
 
         .form-group {
@@ -94,21 +78,21 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--text-main);
         }
 
         input, select {
             width: 100%;
             padding: 12px;
-            background-color: var(--bg-color);
+            border-radius: 6px;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-size: 1rem;
         }
 
         input:focus, select:focus {
-            outline: 2px solid var(--accent-color);
+            outline: none;
+            border-color: var(--accent-color);
         }
 
         .grid-2 {
@@ -118,20 +102,22 @@
         }
 
         @media (max-width: 600px) {
-            .grid-2 { grid-template-columns: 1fr; }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
 
         button {
             width: 100%;
-            padding: 15px;
             background-color: var(--accent-color);
             color: #000;
             font-weight: bold;
-            font-size: 1.1rem;
+            padding: 14px;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background-color 0.2s;
             margin-top: 10px;
         }
 
@@ -141,231 +127,188 @@
         }
 
         .result-box {
-            display: none;
             margin-top: 25px;
             padding: 20px;
-            background-color: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--accent-color);
+            background-color: var(--bg-color);
             border-radius: 8px;
+            border: 1px solid var(--accent-color);
+            display: none;
         }
 
         .result-box h3 {
             color: var(--accent-color);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .result-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
+            margin-bottom: 8px;
             border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 4px;
         }
 
         .result-total {
-            display: flex;
-            justify-content: space-between;
             font-size: 1.3rem;
             font-weight: bold;
-            color: var(--success-color);
+            color: #4ade80;
             margin-top: 15px;
-            padding-top: 10px;
-            border-top: 2px solid var(--border-color);
-        }
-
-        .seo-content {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .seo-content h2 {
-            color: var(--accent-color);
-            margin: 20px 0 10px;
-            font-size: 1.5rem;
-        }
-
-        .seo-content p, .seo-content ul {
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .seo-content ul {
-            padding-left: 20px;
+            border-bottom: none;
         }
 
         footer {
             text-align: center;
             padding: 20px;
+            margin-top: auto;
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
         }
 
-        <footer>
-        <p>&copy; 2026 TuFiniquitoOK - Herramienta informativa no vinculante. <br>
-        <a href="aviso-legal.html">Aviso Legal</a> | <a href="privacidad.html">Política de Privacidad</a></p>
-    </footer>
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>TuFiniquitoOK</h1>
-        <p>Calculadora de Finiquito e Indemnización Laboral en España</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Finiquito</h1>
+            <p class="subtitle">Calcula de forma rápida y precisa la estimación de tu finiquito en España</p>
+        </header>
 
-    <!-- CALCULADORA (MÓDULO 1) -->
-    <div class="calculator-card">
-        <form id="finiquitoForm">
-            <div class="form-group">
-                <label for="salario">Salario Mensual Bruto (€)</label>
-                <input type="number" id="salario" placeholder="Ej: 1500" required>
-            </div>
+        <main>
+            <div class="calculator-card">
+                <form id="finiquito-form">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="salario-base">Salario Bruto Mensual (€):</label>
+                            <input type="number" id="salario-base" placeholder="Ej: 1500" required step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="pagas">Nº de Pagas al año:</label>
+                            <select id="pagas">
+                                <option value="12">12 Pagas (Prorrateadas)</option>
+                                <option value="14">14 Pagas</option>
+                            </select>
+                        </div>
+                    </div>
 
-            <div class="grid-2">
-                <div class="form-group">
-                    <label for="pagas">Número de Pagas</label>
-                    <select id="pagas">
-                        <option value="12">12 Pagas (Pagas prorrateadas)</option>
-                        <option value="14">14 Pagas (2 Pagas extra aparte)</option>
-                    </select>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="fecha-inicio">Fecha de Inicio de Contrato:</label>
+                            <input type="date" id="fecha-inicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-fin">Fecha de Fin/Despido:</label>
+                            <input type="date" id="fecha-fin" required>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="vacaciones">Días de vacaciones no disfrutados:</label>
+                            <input type="number" id="vacaciones" value="0" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="motivo">Motivo de finalización:</label>
+                            <select id="motivo">
+                                <option value="0">Baja Voluntaria (Sin indemnización)</option>
+                                <option value="20">Despido Objetivo / Fin de Obra (20 días/año)</option>
+                                <option value="33">Despido Improcedente (33 días/año)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="calcularFiniquito()">Calcular Finiquito</button>
+                </form>
+
+                <div id="resultado" class="result-box">
+                    <h3>Desglose del Finiquito Estimado</h3>
+                    <div class="result-item">
+                        <span>Parte proporcional mes en curso:</span>
+                        <span id="res-mes">0.00 €</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Vacaciones no disfrutadas:</span>
+                        <span id="res-vacaciones">0.00 €</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Indemnización por despido:</span>
+                        <span id="res-indemnizacion">0.00 €</span>
+                    </div>
+                    <div class="result-item result-total">
+                        <span>Total Estimado A Recibir:</span>
+                        <span id="res-total">0.00 €</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="tipoCausa">Causa de Finalización</label>
-                    <select id="tipoCausa">
-                        <option value="baja">Baja Voluntaria (0 días/año)</option>
-                        <option value="objetivo">Despido Objetivo / Fin Contrato (20 días/año)</option>
-                        <option value="improcedente">Despido Improcedente (33 días/año)</option>
-                    </select>
-                </div>
             </div>
-
-            <div class="grid-2">
-                <div class="form-group">
-                    <label for="fechaInicio">Fecha de Inicio de Contrato</label>
-                    <input type="date" id="fechaInicio" required>
-                </div>
-                <div class="form-group">
-                    <label for="fechaFin">Fecha de Fin de Contrato</label>
-                    <input type="date" id="fechaFin" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="vacaciones">Días de Vacaciones No Disfrutadas este año</label>
-                <input type="number" id="vacaciones" value="0" min="0" placeholder="Ej: 5">
-            </div>
-
-            <button type="button" onclick="calcularFiniquito()">Calcular mi Finiquito</button>
-        </form>
-
-        <div id="resultado" class="result-box">
-            <h3>Desglose Estimado de tu Finiquito</h3>
-            <div class="result-item">
-                <span>Indemnización por Despido:</span>
-                <span id="resIndemnizacion">0.00 €</span>
-            </div>
-            <div class="result-item">
-                <span>Vacaciones No Disfrutadas:</span>
-                <span id="resVacaciones">0.00 €</span>
-            </div>
-            <div class="result-item">
-                <span>Parte Proporcional Pagas Extra:</span>
-                <span id="resPagas">0.00 €</span>
-            </div>
-            <div class="result-total">
-                <span>Total Estimado A Recibir:</span>
-                <span id="resTotal">0.00 €</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- CONTENIDO SEO E INFORMATIVO -->
-    <div class="seo-content">
-        <h2>¿Cómo se calcula el finiquito en España según la ley?</h2>
-        <p>El finiquito es el documento de liquidación laboral que la empresa debe entregar al trabajador al finalizar la relación laboral, independientemente de si la causa ha sido un despido, una baja voluntaria o el fin de un contrato temporal.</p>
-
-        <h2>Diferencia entre Finiquito e Indemnización</h2>
-        <p>Es muy común confundir ambos términos, pero no son lo mismo:</p>
-        <ul>
-            <li><strong>El Finiquito:</strong> Es el dinero que la empresa te debe por el trabajo ya realizado (días trabajados en el mes, vacaciones generadas y no disfrutadas, y partes proporcionales de pagas extraordinarias). <strong>Siempre tienes derecho a cobrarlo</strong>, incluso si te vas voluntariamente.</li>
-            <li><strong>La Indemnización:</strong> Es una compensación económica que solo se cobra en determinados tipos de despido (como el despido objetivo con 20 días por año o el despido improcedente con 33 días por año).</li>
-        </ul>
-
-        <h2>¿Cómo influyen las pagas extras en la liquidación?</h2>
-        <p>Si en tu nómina tienes las pagas prorrateadas (12 pagas al año), la parte proporcional de las pagas ya la cobras cada mes. Si tienes 14 pagas, la empresa te debe abonar la parte de la paga extra de verano o navidad que hayas devengado hasta el día de tu salida.</p>
+        </main>
     </div>
 
     <footer>
-        <p>&copy; 2026 TuFiniquitoOK - Herramienta informativa no vinculante. <br>
-        <a href="#">Aviso Legal</a> | <a href="#">Política de Privacidad</a> | <a href="#">Cookies</a></p>
+        <p>&copy; 2026 TuFiniquitoOK - Herramienta informativa no vinculante.</p>
+        <p>
+            <a href="aviso-legal.html">Aviso Legal</a> | 
+            <a href="privacidad.html">Política de Privacidad</a>
+        </p>
     </footer>
-</div>
 
-<script>
-function calcularFiniquito() {
-    const salarioMensual = parseFloat(document.getElementById('salario').value);
-    const pagas = parseInt(document.getElementById('pagas').value);
-    const causa = document.getElementById('tipoCausa').value;
-    const inicio = new Date(document.getElementById('fechaInicio').value);
-    const fin = new Date(document.getElementById('fechaFin').value);
-    const diasVacaciones = parseFloat(document.getElementById('vacaciones').value) || 0;
+    <script>
+        function calcularFiniquito() {
+            const salarioMensual = parseFloat(document.getElementById('salario-base').value) || 0;
+            const numPagas = parseInt(document.getElementById('pagas').value);
+            const fechaInicio = new Date(document.getElementById('fecha-inicio').value);
+            const fechaFin = new Date(document.getElementById('fecha-fin').value);
+            const diasVacaciones = parseFloat(document.getElementById('vacaciones').value) || 0;
+            const diasIndemnizacion = parseInt(document.getElementById('motivo').value);
 
-    if (!salarioMensual || isNaN(inicio) || isNaN(fin) || fin <= inicio) {
-        alert("Por favor, introduce cifras válidas y fechas correctas.");
-        return;
-    }
+            if (!fechaInicio || !fechaFin || fechaFin <= fechaInicio) {
+                alert('Por favor, introduce fechas válidas.');
+                return;
+            }
 
-    // Cálculo de días trabajados
-    const diffTime = Math.abs(fin - inicio);
-    const diasTrabajados = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const anosTrabajados = diasTrabajados / 365;
+            // Calculo Salario Anual y Diario
+            let salarioAnual = 0;
+            if (numPagas === 12) {
+                salarioAnual = salarioMensual * 12;
+            } else {
+                salarioAnual = salarioMensual * 14;
+            }
+            const salarioDiario = salarioAnual / 365;
 
-    // Salario diario bruto (Sueldo anual / 365)
-    const salarioAnual = salarioMensual * pagas;
-    const salarioDiario = salarioAnual / 365;
+            // 1. Días trabajados mes en curso
+            const diasMesEnCurso = fechaFin.getDate();
+            const resMes = diasMesEnCurso * (salarioMensual / 30);
 
-    // 1. Indemnización
-    let diasPorAno = 0;
-    if (causa === 'objetivo') diasPorAno = 20;
-    if (causa === 'improcedente') diasPorAno = 33;
-    
-    let indemnizacion = salarioDiario * diasPorAno * anosTrabajados;
+            // 2. Pago Vacaciones
+            const resVacaciones = diasVacaciones * salarioDiario;
 
-    // Topes legales
-    if (causa === 'objetivo' && indemnizacion > (salarioMensual * 12)) {
-        indemnizacion = salarioMensual * 12;
-    }
-    if (causa === 'improcedente' && indemnizacion > (salarioMensual * 24)) {
-        indemnizacion = salarioMensual * 24;
-    }
+            // 3. Indemnización
+            const diffTiempo = Math.abs(fechaFin - fechaInicio);
+            const diasTotalesTrabajados = Math.ceil(diffTiempo / (1000 * 60 * 60 * 24));
+            const anosTrabajados = diasTotalesTrabajados / 365;
+            
+            const resIndemnizacion = anosTrabajados * diasIndemnizacion * salarioDiario;
 
-    // 2. Vacaciones no disfrutadas
-    const valorVacaciones = salarioDiario * diasVacaciones;
+            // Total
+            const total = resMes + resVacaciones + resIndemnizacion;
 
-    // 3. Pagas extras (Estimación simple para 14 pagas si no están prorrateadas)
-    let valorPagas = 0;
-    if (pagas === 14) {
-        // Estimación aproximada proporcional de 1 paga según días del año
-        const diasAnoActual = (fin - new Date(fin.getFullYear(), 0, 1)) / (1000 * 60 * 60 * 24);
-        valorPagas = (salarioMensual * (diasAnoActual / 365));
-    }
+            // Mostrar Resultados
+            document.getElementById('res-mes').innerText = resMes.toFixed(2) + ' €';
+            document.getElementById('res-vacaciones').innerText = resVacaciones.toFixed(2) + ' €';
+            document.getElementById('res-indemnizacion').innerText = resIndemnizacion.toFixed(2) + ' €';
+            document.getElementById('res-total').innerText = total.toFixed(2) + ' €';
 
-    const total = indemnizacion + valorVacaciones + valorPagas;
-
-    // Mostrar resultados
-    document.getElementById('resIndemnizacion').innerText = indemnizacion.toFixed(2) + " €";
-    document.getElementById('resVacaciones').innerText = valorVacaciones.toFixed(2) + " €";
-    document.getElementById('resPagas').innerText = valorPagas.toFixed(2) + " €";
-    document.getElementById('resTotal').innerText = total.toFixed(2) + " €";
-
-    document.getElementById('resultado').style.display = 'block';
-}
-</script>
-
+            document.getElementById('resultado').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
