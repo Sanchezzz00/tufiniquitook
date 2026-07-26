@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cómo Calcular las Vacaciones No Disfrutadas en el Finiquito? | TuFiniquitoOK</title>
+    <meta name="description" content="Aprende a calcular cuánto dinero te corresponde por los días de vacaciones no disfrutadas al finalizar tu contrato. Fórmula exacta, retenciones y cotización.">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --example-bg: #0f2942;
+            --example-border: #38bdf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 0 20px 40px 20px;
+        }
+
+        nav {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+            margin: 0 -20px 30px -20px;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.1rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .meta-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #f1f5f9;
+            margin: 30px 0 15px 0;
+            font-size: 1.4rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        ul {
+            color: var(--text-muted);
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background-color: var(--example-bg);
+            border-left: 4px solid var(--example-border);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 25px 0;
+        }
+
+        .example-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: opacity 0.2s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0 0 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <span>⚖️</span> TuFiniquito<span>OK</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Cómo Calcular las Vacaciones No Disfrutadas en el Finiquito</h1>
+            <div class="meta-info">
+                📅 Actualizado: 2026 | ⏱️ Lectura: 4 minutos | ⚖️ Normativa Laboral España
+            </div>
+        </header>
+
+        <main>
+            <p>Por ley en España, las vacaciones son un derecho retribuido e irrenunciable. **La regla general prohíbe cambiarlas por dinero**, salvo una única excepción: cuando el contrato de trabajo se extingue sin que el trabajador haya podido disfrutar de todos sus días devengados.</p>
+
+            <h2>1. ¿Cuántos días de vacaciones te corresponden por mes?</h2>
+            <p>Según el Estatuto de los Trabajadores, el mínimo legal es de **30 días naturales** de descanso por cada año completo trabajado (o 22 días laborables según tu convenio colectivo):</p>
+            <ul>
+                <li><strong>Si tu convenio habla de días naturales:</strong> Acumulas <strong>2,5 días por cada mes trabajado</strong> (30 días / 12 meses).</li>
+                <li><strong>Si tu convenio habla de días laborables:</strong> Acumulas <strong>1,83 días por cada mes trabajado</strong> (22 días / 12 meses).</li>
+            </ul>
+
+            <h2>2. La Fórmula Exacta para Calcular la Cuantía</h2>
+            <p>Para saber el dinero exacto que deben incluir en tu liquidación, se aplica la siguiente regla de tres simple:</p>
+
+            <div class="example-box">
+                <h3>🧮 Fórmula:</h3>
+                <p><strong>Días pendientes = (Días trabajados en el año actual × Días de vacaciones al año) / 365</strong></p>
+                <p>Una vez que tienes los días pendientes, solo debes multiplicarlos por tu <strong>Salario Diario Bruto</strong> (Salario Bruto Anual / 365).</p>
+            </div>
+
+            <h2>3. Ejemplo Práctico de Cálculo</h2>
+            <p>Imaginemos que cobras 1.500 € brutos al mes (en 12 pagas con extras prorrateadas). Tu salario diario es de 49,31 €/día. Si tu contrato se extingue el 30 de junio y no has cogido ninguna semana de vacaciones ese año:</p>
+
+            <ul>
+                <li>Has trabajado 181 días del año.</li>
+                <li>Días de vacaciones devengados: (181 × 30) / 365 = <strong>14,87 días</strong>.</li>
+                <li><strong>Importe a cobrar en el finiquito:</strong> 14,87 días × 49,31 €/día = <strong>733,24 € brutos</strong>.</li>
+            </ul>
+
+            <h2>4. ¿Cómo cotizan y tributan estas vacaciones?</h2>
+            <p>Las vacaciones no disfrutadas **no son libres de impuestos**: tienen retención de IRPF exactamente igual que la nómina normal y la empresa debe cotizar por ellas a la Seguridad Social. Durante esos días equivalentes de vacaciones pagadas, seguirás en situación de alta assimilada a la cotización.</p>
+
+            <a href="/" class="back-btn">← Calcular con la Herramienta Automática</a>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TuFiniquitoOK | <a href="aviso-legal.html">Aviso Legal</a> | <a href="privacidad.html">Política de Privacidad</a></p>
+    </footer>
+
+</body>
+</html>
