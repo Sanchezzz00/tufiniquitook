@@ -31,6 +31,9 @@
     <priority>0.8</priority>
   </url>
   <url>
+  <loc>https://tufiniquitook.vercel.app/firmar-no-conforme</loc>
+</url>
+  <url>
     <loc>https://tufiniquitook.vercel.app/guias/papeleta-conciliacion-smac.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
